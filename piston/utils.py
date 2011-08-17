@@ -183,6 +183,8 @@ class Mimer(object):
 
         ctype = self.request.META.get('CONTENT_TYPE', type_formencoded)
         
+        ctype = ctype.split(";")[0]
+        
         if ctype == type_formencoded:
             return None
         
