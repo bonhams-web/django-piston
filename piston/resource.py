@@ -149,7 +149,7 @@ class Resource(object):
             receive a basic "500 Internal Server Error" message.
             """
             exc_type, exc_value, tb = sys.exc_info()
-            rep = ExceptionReporter(request, exc_type, exc_value, tb.tb_next)
+            rep = ExceptionReporter(request, exc_type, exc_value, tb.tb_next, is_email=self.email_errors)
             if self.email_errors:
                 self.email_exception(rep)
             if self.display_errors:
